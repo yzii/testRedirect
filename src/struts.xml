@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<include file="struts-default.xml" />
+ <package name="default" extends="struts-default" namespace="/">
+	<action name="loginAction" class="com.action.LoginAction" method="execute">
+		<result name="error" type="redirect">/errorAction.jsp?username=${username}&amp;password=${password}</result>
+	
+	  	<result name="success" type="redirectAction">
+			<param name="actionName">loginAction2</param>
+			<param name="username" >${username}</param>
+			<param name="password" >${password}</param>
+		</result>
+	</action>
+	
+	<action name="loginAction2" class="com.action.LoginAction2" method="outPut"></action>
+	</package>
+</struts>    
